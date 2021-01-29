@@ -80,21 +80,28 @@
 
    <script>
       document.getElementById('plusBtn').addEventListener("click", function () {
-         const numberCount = document.getElementById('numberCount');
-         const mobileCount = parseInt(numberCount.value);
-         const mobileNewCount = mobileCount + 1;
-         numberCount.value = mobileNewCount;
-         const totalMobile = mobileNewCount * 1219;
-         document.getElementById('total-mobile').innerText = '$' + totalMobile;
+         handleProductChanges(true);
       })
+      
       document.getElementById('minusBtn').addEventListener('click', function () {
+         handleProductChanges(false);
+      })
+
+      function handleProductChanges(isIncrease) {
          const numberCount = document.getElementById('numberCount');
          const mobileCount = parseInt(numberCount.value);
-         const mobileNewCount = mobileCount - 1;
+         // const mobileNewCount = mobileCount + 1;
+         let mobileNewCount = mobileCount;
+         if (isIncrease == true) {
+            mobileNewCount = mobileCount + 1;
+         }
+         if (isIncrease == false && mobileCount > 0) {
+            mobileNewCount = mobileCount - 1;
+         }
          numberCount.value = mobileNewCount;
          const totalMobile = mobileNewCount * 1219;
          document.getElementById('total-mobile').innerText = '$' + totalMobile;
-      })
+      }
 
    </script>
 
