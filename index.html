@@ -25,9 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button onclick="handlePhoneChanges(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id="numberCount" type="text" class="form-control text-center" value="1">
-                           <button onclick="handlePhoneChanges(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="handlePhoneChanges(false)" class="btn btn-default"><i
+                                 class="fas fa-minus"></i></button>
+                           <input id="phone-count" type="text" class="form-control text-center" value="1">
+                           <button onclick="handlePhoneChanges(true)" class="btn btn-default"><i
+                                 class="fas fa-plus"></i></button>
                         </div>
                         <h5 id="total-mobile">$1219</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -43,12 +45,14 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="handleCaseChanges(false)" class="btn btn-default"><i
+                                 class="fas fa-minus"></i></button>
+                           <input id="case-count" type="text" class="form-control text-center" value="1">
+                           <button onclick="handleCaseChanges(true)" class="btn btn-default"><i
+                                 class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5 id="total-cases">$59</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -81,7 +85,7 @@
    <script>
 
       function handlePhoneChanges(isIncrease) {
-         const inputCount = document.getElementById('numberCount');
+         const inputCount = document.getElementById('phone-count');
          const mobileCount = parseInt(inputCount.value);
 
          let mobileNewCount = mobileCount;
@@ -94,6 +98,21 @@
          inputCount.value = mobileNewCount;
          const totalMobile = mobileNewCount * 1219;
          document.getElementById('total-mobile').innerText = '$' + totalMobile;
+      }
+
+      function handleCaseChanges(isIncrease) {
+         const inputCases = document.getElementById('case-count');
+         const caseCount = parseInt(inputCases.value);
+         let caseNewCount = caseCount;
+         if (isIncrease == true) {
+            caseNewCount = caseCount + 1;
+         }
+         if (isIncrease == false && caseCount > 0) {
+            caseNewCount = caseCount - 1;
+         }
+         inputCases.value = caseNewCount;
+         const totalCases = caseCount * 59;
+         document.getElementById('total-cases').innerText = '$' + totalCases;
       }
 
    </script>
