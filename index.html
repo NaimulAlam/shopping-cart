@@ -25,9 +25,9 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button id="minusBtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button onclick="handleProductChanges(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="numberCount" type="text" class="form-control text-center" value="1">
-                           <button id="plusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="handleProductChanges(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5 id="total-mobile">$1219</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -79,13 +79,13 @@
    </section>
 
    <script>
-      document.getElementById('plusBtn').addEventListener("click", function () {
-         handleProductChanges(true);
-      })
-      
-      document.getElementById('minusBtn').addEventListener('click', function () {
-         handleProductChanges(false);
-      })
+      // document.getElementById('plusBtn').addEventListener("click", function () {
+      //    handleProductChanges(true);
+      // })
+
+      // document.getElementById('minusBtn').addEventListener('click', function () {
+      //    handleProductChanges(false);
+      // })
 
       function handleProductChanges(isIncrease) {
          const numberCount = document.getElementById('numberCount');
